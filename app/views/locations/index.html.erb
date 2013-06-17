@@ -7,23 +7,29 @@
   </p>
 <% end %>
 
-<table>
+<div class="hero-unit">
+<table class= "table" >
+ <thead> 
   <tr>
     <th>Address</th>
     <th>Latitude</th>
     <th>Longitude</th>
   </tr>
+  </thead>
+  <tbody>
   <% for location in @locations %>
+    
     <tr>
       <td><%= location.address %></td>
       <td><%= location.latitude %></td>
       <td><%= location.longitude %></td>
       <td><%= link_to "Show", location %></td>
       <td><%= link_to "Edit", edit_location_path(location) %></td>
-      <td><%= link_to "Destroy", location, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= link_to "Delete", location, :confirm => 'Are you sure?', :method => :delete %></td>
     </tr>
+    </tbody>
   <% end %>
 </table>
-
+</div>
 <p><%= link_to "New Location", new_location_path %></p>	
 
