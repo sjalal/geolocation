@@ -1,26 +1,46 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Geolocation</title>
-    <%= stylesheet_link_tag    "application", :media => "all" %>
-    <%= javascript_include_tag "application" %>
-    <%= csrf_meta_tags %>
-  </head>
-  <body>
-    <div id="user_nav">
-      <% if user_signed_in? %>
-        Signed in as <%= current_user.email %>. Not you?
-        <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-      <% else %>
-        <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
-      <% end %>
+<html lang="en">
+<head>
+  <title>Geo-places</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+
+  <div class="container-fluid">
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div id="user_nav">
+          <% if user_signed_in? %>
+            Signed in as <%= current_user.email %>. Not you?
+            <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+          <% else %>
+            <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
+          <% end %>
+        </div>
+        <a class="brand" href="/">Geo-Places</a>
+        <ul class="nav">
+          <li class="<%= active_for('new') %>"><%= link_to "Demo", new_location_path %></li>
+          <li class="<%= active_for('index') %>"><%= link_to "Stored Locations", locations_path %></li>
+          <li class="divider-vertical"></li>
+          <li><%= link_to "Source Code", "https://github.com/sjalal/geolocation", target: 'blank' %></li>
+        </ul>
+      </div>
     </div>
-    <div id="container"> 
-      <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, :id => "flash_#{name}" %>
-      <% end %>
-      
+
+    <a href="https://github.com/sjalal/geolocation">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub">
+    </a>
+    <div class="row-fluid">
+      <div class='flash'>
+        <%= bootstap_flash %>
+      </div>
       <%= yield %>
     </div>
-  </body>
+  </div>
+
+</body>
 </html>

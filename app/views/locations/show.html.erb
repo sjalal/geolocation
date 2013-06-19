@@ -1,30 +1,46 @@
-<h1>Location</h1>
+<div class="span11">
+  <% if notice %>
+    <p class="notice"><%= notice %></p>
+  <% end %>
 
-<p>
-  <strong>Address:</strong>
-  <%= @location.address %>
-</p>
-<p>
-  <strong>Latitude:</strong>
-  <%= @location.latitude %>
-</p>
-<p>
-  <strong>Longitude:</strong>
-  <%= @location.longitude %>
-</p>
+  <p>
+    <b>Address:</b>
+    <%= @location.address %>
+  </p>
 
-<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@location.latitude}%2C#{@location.longitude}" %>
-<!-- need to insert map here -->
+  <p>
+    <b>City:</b>
+    <%= @location.city %>
+  </p>
 
-<h3>Nearby locations</h3>
-<ul>
-<% for location in @location.nearbys(10) %>
-  <li><%= link_to location.address, location %> (<%= location.distance.to_f.round(2) %> miles)</li>
-<% end %>
-</ul>
+  <p>
+    <b>Postcode:</b>
+    <%= @location.postcode %>
+  </p>
 
-<p>
+  <p>
+    <b>Country:</b>
+    <%= @location.country %>
+  </p>
+
+  <p>
+    <b>Latitude:</b>
+    <span id="location_lat"><%= @location.lat %></span>
+  </p>
+
+  <p>
+    <b>Longitude:</b>
+    <span id="location_lng"><%= @location.lng %></span>
+  </p>
+
+  <%= render :partial => "googlemap_show" %>
+
+  <h3>Nearby Location<h3>
+   <!-- insert nearby location method here -->
+  <p>
   <%= link_to "Edit", edit_location_path(@location) %> |
-  <%= link_to "Delete", @location, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", locations_path %>
-</p>
+  <%= link_to "Delete", @location, :confirm => "Are you sure", :method => :delete %> | 
+  <%= link_to "View all", locations_path %> |
+
+</p> 
+</div>

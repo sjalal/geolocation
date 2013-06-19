@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Geolocation::Application.load_tasks
+GooglePlacesAutocomplete::Application.load_tasks
