@@ -4,7 +4,7 @@ source 'http://rubygems.org'
 gem 'rake' 
 gem 'rails', '3.2.13'
 gem 'bundler', '>= 1.2.2'
-gem 'sqlite3'
+gem 'pg'
 gem 'devise'
 gem 'geocoder'
 
@@ -19,10 +19,6 @@ end
 
 gem 'jquery-rails'
 gem 'kaminari'
-
-group :production do
-  gem 'pg'
-end
 
 group :test do 
   gem 'capybara'
