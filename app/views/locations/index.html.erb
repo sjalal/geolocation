@@ -3,7 +3,7 @@
 
   <table class="table table-striped">
     <tr>
-      <th>Address</th>
+      <th>Name</th>
       <th>City</th>
       <th>Zip</th>
       <th>Country</th>
@@ -15,7 +15,7 @@
   <% for location in @locations %>
   
     <tr>
-      <td><%= link_to location.address, location %></td>
+      <td><%= link_to location.location_name, location %></td>
       <td><%= location.city %></td>
       <td><%= location.postcode %></td>
       <td><%= location.country %></td>
