@@ -1,4 +1,3 @@
-@wip
 Feature: Users can signs in and signs out
 In order to save locations
 As a user

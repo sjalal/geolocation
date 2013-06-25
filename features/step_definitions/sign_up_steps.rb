@@ -12,7 +12,7 @@ When(/^I fill in "(.*?)" for "(.*?)"$/) do |value, field_name|
 end
 
 When(/^I press "(.*?)"$/) do |arg1|
-  click_button "Sign in"
+  click_button arg1
 end
 
 Then(/^I should see "(.*?)"$/) do |arg1|
