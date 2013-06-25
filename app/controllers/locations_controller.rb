@@ -5,7 +5,7 @@ class LocationsController < ApplicationController
   # GET /locations
   # GET /locations.json
   def index
-    @locations = Location.order("id desc").page(params[:page]).per(50)
+    @locations = Location.all
 
     respond_to do |format|
       format.html # index.html.erb

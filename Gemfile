@@ -7,6 +7,7 @@ gem 'bundler', '>= 1.2.2'
 gem 'pg'
 gem 'devise'
 gem 'geocoder'
+gem 'google_places'
 
 group :assets do
   gem 'therubyrhino', require: 'rhino', platform: :jruby
@@ -22,8 +23,9 @@ gem 'kaminari'
 
 group :test do 
   gem 'capybara'
-  gem 'cucumber-rails'
+  gem 'cucumber-rails', require: false
   gem 'database_cleaner'
+  gem 'fabrication'
   gem 'launchy'
   gem 'rspec-rails'
 end 
