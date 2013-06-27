@@ -6,9 +6,11 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-
-<body>
-
+<% if user_signed_in? %>
+     <body>
+<% else %>
+     <body class="background-img">
+<% end %>
   <div class="container-fluid">
 
     <div id="navbar" class="navbar navbar-inverse">
